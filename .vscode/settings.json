@@ -1,0 +1,6 @@
+{
+    "python.defaultInterpreterPath": "/opt/conda/bin/python",
+    "python.linting.pylintPath": "/opt/conda/bin/pylint",
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true
+}
