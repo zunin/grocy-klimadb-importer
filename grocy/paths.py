@@ -1,71 +1,73 @@
-SYSTEM_INFO = "/system/info"
-SYSTEM_DB_CHANGED_TIME = "/system/db-changed-time"
-SYSTEM_CONFIG = "/system/config"
-SYSTEM_TIME = "/system/time"
-SYSTEM_LOCALIZATION_STRINGS = "/system/localization-strings"
-SYSTEM_LOG_MISSING_LOCALIZATION = "/system/log-missing-localization"
-OBJECTS_BY_ENTITY = lambda entity: f"/objects/{entity}"
-OBJECTS_BY_ENTITY_BY_OBJECTID = lambda entity, objectId: f"/objects/{entity}/{objectId}"
-USERFIELDS_BY_ENTITY_BY_OBJECTID = lambda entity, objectId: f"/userfields/{entity}/{objectId}"
-FILES_BY_GROUP_BY_FILENAME = lambda group, fileName: f"/files/{group}/{fileName}"
-USERS = "/users"
-USERS_BY_USERID = lambda userId: f"/users/{userId}"
-USERS_BY_USERID_PERMISSIONS = lambda userId: f"/users/{userId}/permissions"
-USER = "/user"
-USER_SETTINGS = "/user/settings"
-USER_SETTINGS_BY_SETTINGKEY = lambda settingKey: f"/user/settings/{settingKey}"
-STOCK = "/stock"
-STOCK_ENTRY_BY_ENTRYID = lambda entryId: f"/stock/entry/{entryId}"
-STOCK_ENTRY_BY_ENTRYID_PRINTLABEL = lambda entryId: f"/stock/entry/{entryId}/printlabel"
-STOCK_VOLATILE = "/stock/volatile"
-STOCK_PRODUCTS_BY_PRODUCTID = lambda productId: f"/stock/products/{productId}"
-STOCK_PRODUCTS_BY_PRODUCTID_LOCATIONS = lambda productId: f"/stock/products/{productId}/locations"
-STOCK_PRODUCTS_BY_PRODUCTID_ENTRIES = lambda productId: f"/stock/products/{productId}/entries"
-STOCK_PRODUCTS_BY_PRODUCTID_PRICE_HISTORY = lambda productId: f"/stock/products/{productId}/price-history"
-STOCK_PRODUCTS_BY_PRODUCTID_ADD = lambda productId: f"/stock/products/{productId}/add"
-STOCK_PRODUCTS_BY_PRODUCTID_CONSUME = lambda productId: f"/stock/products/{productId}/consume"
-STOCK_PRODUCTS_BY_PRODUCTID_TRANSFER = lambda productId: f"/stock/products/{productId}/transfer"
-STOCK_PRODUCTS_BY_PRODUCTID_INVENTORY = lambda productId: f"/stock/products/{productId}/inventory"
-STOCK_PRODUCTS_BY_PRODUCTID_OPEN = lambda productId: f"/stock/products/{productId}/open"
-STOCK_PRODUCTS_BY_PRODUCTID_PRINTLABEL = lambda productId: f"/stock/products/{productId}/printlabel"
-STOCK_PRODUCTS_BY_PRODUCTIDTOKEEP_MERGE_BY_PRODUCTIDTOREMOVE = lambda productIdToKeep, productIdToRemove: f"/stock/products/{productIdToKeep}/merge/{productIdToRemove}"
-STOCK_PRODUCTS_BY_BARCODE_BY_BARCODE = lambda barcode: f"/stock/products/by-barcode/{barcode}"
-STOCK_PRODUCTS_BY_BARCODE_BY_BARCODE_ADD = lambda barcode: f"/stock/products/by-barcode/{barcode}/add"
-STOCK_PRODUCTS_BY_BARCODE_BY_BARCODE_CONSUME = lambda barcode: f"/stock/products/by-barcode/{barcode}/consume"
-STOCK_PRODUCTS_BY_BARCODE_BY_BARCODE_TRANSFER = lambda barcode: f"/stock/products/by-barcode/{barcode}/transfer"
-STOCK_PRODUCTS_BY_BARCODE_BY_BARCODE_INVENTORY = lambda barcode: f"/stock/products/by-barcode/{barcode}/inventory"
-STOCK_PRODUCTS_BY_BARCODE_BY_BARCODE_OPEN = lambda barcode: f"/stock/products/by-barcode/{barcode}/open"
-STOCK_SHOPPINGLIST_ADD_MISSING_PRODUCTS = "/stock/shoppinglist/add-missing-products"
-STOCK_SHOPPINGLIST_ADD_OVERDUE_PRODUCTS = "/stock/shoppinglist/add-overdue-products"
-STOCK_SHOPPINGLIST_ADD_EXPIRED_PRODUCTS = "/stock/shoppinglist/add-expired-products"
-STOCK_SHOPPINGLIST_CLEAR = "/stock/shoppinglist/clear"
-STOCK_SHOPPINGLIST_ADD_PRODUCT = "/stock/shoppinglist/add-product"
-STOCK_SHOPPINGLIST_REMOVE_PRODUCT = "/stock/shoppinglist/remove-product"
-STOCK_BOOKINGS_BY_BOOKINGID = lambda bookingId: f"/stock/bookings/{bookingId}"
-STOCK_BOOKINGS_BY_BOOKINGID_UNDO = lambda bookingId: f"/stock/bookings/{bookingId}/undo"
-STOCK_TRANSACTIONS_BY_TRANSACTIONID = lambda transactionId: f"/stock/transactions/{transactionId}"
-STOCK_TRANSACTIONS_BY_TRANSACTIONID_UNDO = lambda transactionId: f"/stock/transactions/{transactionId}/undo"
-STOCK_BARCODES_EXTERNAL_LOOKUP_BY_BARCODE = lambda barcode: f"/stock/barcodes/external-lookup/{barcode}"
-RECIPES_BY_RECIPEID_ADD_NOT_FULFILLED_PRODUCTS_TO_SHOPPINGLIST = lambda recipeId: f"/recipes/{recipeId}/add-not-fulfilled-products-to-shoppinglist"
-RECIPES_BY_RECIPEID_FULFILLMENT = lambda recipeId: f"/recipes/{recipeId}/fulfillment"
-RECIPES_BY_RECIPEID_CONSUME = lambda recipeId: f"/recipes/{recipeId}/consume"
-RECIPES_FULFILLMENT = "/recipes/fulfillment"
-RECIPES_BY_RECIPEID_COPY = lambda recipeId: f"/recipes/{recipeId}/copy"
-CHORES = "/chores"
-CHORES_BY_CHOREID = lambda choreId: f"/chores/{choreId}"
-CHORES_BY_CHOREID_EXECUTE = lambda choreId: f"/chores/{choreId}/execute"
-CHORES_EXECUTIONS_BY_EXECUTIONID_UNDO = lambda executionId: f"/chores/executions/{executionId}/undo"
-CHORES_EXECUTIONS_CALCULATE_NEXT_ASSIGNMENTS = "/chores/executions/calculate-next-assignments"
-CHORES_BY_CHOREID_PRINTLABEL = lambda choreId: f"/chores/{choreId}/printlabel"
-CHORES_BY_CHOREIDTOKEEP_MERGE_BY_CHOREIDTOREMOVE = lambda choreIdToKeep, choreIdToRemove: f"/chores/{choreIdToKeep}/merge/{choreIdToRemove}"
-BATTERIES = "/batteries"
-BATTERIES_BY_BATTERYID = lambda batteryId: f"/batteries/{batteryId}"
-BATTERIES_BY_BATTERYID_CHARGE = lambda batteryId: f"/batteries/{batteryId}/charge"
-BATTERIES_CHARGE_CYCLES_BY_CHARGECYCLEID_UNDO = lambda chargeCycleId: f"/batteries/charge-cycles/{chargeCycleId}/undo"
-BATTERIES_BY_BATTERYID_PRINTLABEL = lambda batteryId: f"/batteries/{batteryId}/printlabel"
-TASKS = "/tasks"
-TASKS_BY_TASKID_COMPLETE = lambda taskId: f"/tasks/{taskId}/complete"
-TASKS_BY_TASKID_UNDO = lambda taskId: f"/tasks/{taskId}/undo"
-CALENDAR_ICAL = "/calendar/ical"
-CALENDAR_ICAL_SHARING_LINK = "/calendar/ical/sharing-link"
-PRINT_SHOPPINGLIST_THERMAL = "/print/shoppinglist/thermal"
+import typing
+from typing import Callable
+SYSTEM_INFO = typing.NamedTuple("SYSTEM_INFO", [('GET', str)])(GET="/system/info")
+SYSTEM_DB_CHANGED_TIME = typing.NamedTuple("SYSTEM_DB_CHANGED_TIME", [('GET', str)])(GET="/system/db-changed-time")
+SYSTEM_CONFIG = typing.NamedTuple("SYSTEM_CONFIG", [('GET', str)])(GET="/system/config")
+SYSTEM_TIME = typing.NamedTuple("SYSTEM_TIME", [('GET', str)])(GET="/system/time")
+SYSTEM_LOCALIZATION_STRINGS = typing.NamedTuple("SYSTEM_LOCALIZATION_STRINGS", [('GET', str)])(GET="/system/localization-strings")
+SYSTEM_LOG_MISSING_LOCALIZATION = typing.NamedTuple("SYSTEM_LOG_MISSING_LOCALIZATION", [('POST', str)])(POST="/system/log-missing-localization")
+OBJECTS_BY_ENTITY = typing.NamedTuple("OBJECTS_BY_ENTITY", [('GET', Callable[[str], str]), ('POST', Callable[[str], str])])(GET=lambda entity: f"/objects/{entity}", POST=lambda entity: f"/objects/{entity}")
+OBJECTS_BY_ENTITY_BY_OBJECTID = typing.NamedTuple("OBJECTS_BY_ENTITY_BY_OBJECTID", [('GET', Callable[[str, str], str]), ('PUT', Callable[[str, str], str]), ('DELETE', Callable[[str, str], str])])(GET=lambda entity, objectId: f"/objects/{entity}/{objectId}", PUT=lambda entity, objectId: f"/objects/{entity}/{objectId}", DELETE=lambda entity, objectId: f"/objects/{entity}/{objectId}")
+USERFIELDS_BY_ENTITY_BY_OBJECTID = typing.NamedTuple("USERFIELDS_BY_ENTITY_BY_OBJECTID", [('GET', Callable[[str, str], str]), ('PUT', Callable[[str, str], str])])(GET=lambda entity, objectId: f"/userfields/{entity}/{objectId}", PUT=lambda entity, objectId: f"/userfields/{entity}/{objectId}")
+FILES_BY_GROUP_BY_FILENAME = typing.NamedTuple("FILES_BY_GROUP_BY_FILENAME", [('GET', Callable[[str, str], str]), ('PUT', Callable[[str, str], str]), ('DELETE', Callable[[str, str], str])])(GET=lambda group, fileName: f"/files/{group}/{fileName}", PUT=lambda group, fileName: f"/files/{group}/{fileName}", DELETE=lambda group, fileName: f"/files/{group}/{fileName}")
+USERS = typing.NamedTuple("USERS", [('GET', str), ('POST', str)])(GET="/users", POST="/users")
+USERS_BY_USERID = typing.NamedTuple("USERS_BY_USERID", [('PUT', Callable[[str], str]), ('DELETE', Callable[[str], str])])(PUT=lambda userId: f"/users/{userId}", DELETE=lambda userId: f"/users/{userId}")
+USERS_BY_USERID_PERMISSIONS = typing.NamedTuple("USERS_BY_USERID_PERMISSIONS", [('GET', Callable[[str], str]), ('POST', Callable[[str], str]), ('PUT', Callable[[str], str])])(GET=lambda userId: f"/users/{userId}/permissions", POST=lambda userId: f"/users/{userId}/permissions", PUT=lambda userId: f"/users/{userId}/permissions")
+USER = typing.NamedTuple("USER", [('GET', str)])(GET="/user")
+USER_SETTINGS = typing.NamedTuple("USER_SETTINGS", [('GET', str)])(GET="/user/settings")
+USER_SETTINGS_BY_SETTINGKEY = typing.NamedTuple("USER_SETTINGS_BY_SETTINGKEY", [('GET', Callable[[str], str]), ('PUT', Callable[[str], str]), ('DELETE', Callable[[str], str])])(GET=lambda settingKey: f"/user/settings/{settingKey}", PUT=lambda settingKey: f"/user/settings/{settingKey}", DELETE=lambda settingKey: f"/user/settings/{settingKey}")
+STOCK = typing.NamedTuple("STOCK", [('GET', str)])(GET="/stock")
+STOCK_ENTRY_BY_ENTRYID = typing.NamedTuple("STOCK_ENTRY_BY_ENTRYID", [('GET', Callable[[str], str]), ('PUT', Callable[[str], str])])(GET=lambda entryId: f"/stock/entry/{entryId}", PUT=lambda entryId: f"/stock/entry/{entryId}")
+STOCK_ENTRY_BY_ENTRYID_PRINTLABEL = typing.NamedTuple("STOCK_ENTRY_BY_ENTRYID_PRINTLABEL", [('GET', Callable[[str], str])])(GET=lambda entryId: f"/stock/entry/{entryId}/printlabel")
+STOCK_VOLATILE = typing.NamedTuple("STOCK_VOLATILE", [('GET', str)])(GET="/stock/volatile")
+STOCK_PRODUCTS_BY_PRODUCTID = typing.NamedTuple("STOCK_PRODUCTS_BY_PRODUCTID", [('GET', Callable[[str], str])])(GET=lambda productId: f"/stock/products/{productId}")
+STOCK_PRODUCTS_BY_PRODUCTID_LOCATIONS = typing.NamedTuple("STOCK_PRODUCTS_BY_PRODUCTID_LOCATIONS", [('GET', Callable[[str], str])])(GET=lambda productId: f"/stock/products/{productId}/locations")
+STOCK_PRODUCTS_BY_PRODUCTID_ENTRIES = typing.NamedTuple("STOCK_PRODUCTS_BY_PRODUCTID_ENTRIES", [('GET', Callable[[str], str])])(GET=lambda productId: f"/stock/products/{productId}/entries")
+STOCK_PRODUCTS_BY_PRODUCTID_PRICE_HISTORY = typing.NamedTuple("STOCK_PRODUCTS_BY_PRODUCTID_PRICE_HISTORY", [('GET', Callable[[str], str])])(GET=lambda productId: f"/stock/products/{productId}/price-history")
+STOCK_PRODUCTS_BY_PRODUCTID_ADD = typing.NamedTuple("STOCK_PRODUCTS_BY_PRODUCTID_ADD", [('POST', Callable[[str], str])])(POST=lambda productId: f"/stock/products/{productId}/add")
+STOCK_PRODUCTS_BY_PRODUCTID_CONSUME = typing.NamedTuple("STOCK_PRODUCTS_BY_PRODUCTID_CONSUME", [('POST', Callable[[str], str])])(POST=lambda productId: f"/stock/products/{productId}/consume")
+STOCK_PRODUCTS_BY_PRODUCTID_TRANSFER = typing.NamedTuple("STOCK_PRODUCTS_BY_PRODUCTID_TRANSFER", [('POST', Callable[[str], str])])(POST=lambda productId: f"/stock/products/{productId}/transfer")
+STOCK_PRODUCTS_BY_PRODUCTID_INVENTORY = typing.NamedTuple("STOCK_PRODUCTS_BY_PRODUCTID_INVENTORY", [('POST', Callable[[str], str])])(POST=lambda productId: f"/stock/products/{productId}/inventory")
+STOCK_PRODUCTS_BY_PRODUCTID_OPEN = typing.NamedTuple("STOCK_PRODUCTS_BY_PRODUCTID_OPEN", [('POST', Callable[[str], str])])(POST=lambda productId: f"/stock/products/{productId}/open")
+STOCK_PRODUCTS_BY_PRODUCTID_PRINTLABEL = typing.NamedTuple("STOCK_PRODUCTS_BY_PRODUCTID_PRINTLABEL", [('GET', Callable[[str], str])])(GET=lambda productId: f"/stock/products/{productId}/printlabel")
+STOCK_PRODUCTS_BY_PRODUCTIDTOKEEP_MERGE_BY_PRODUCTIDTOREMOVE = typing.NamedTuple("STOCK_PRODUCTS_BY_PRODUCTIDTOKEEP_MERGE_BY_PRODUCTIDTOREMOVE", [('POST', Callable[[str, str], str])])(POST=lambda productIdToKeep, productIdToRemove: f"/stock/products/{productIdToKeep}/merge/{productIdToRemove}")
+STOCK_PRODUCTS_BY_BARCODE_BY_BARCODE = typing.NamedTuple("STOCK_PRODUCTS_BY_BARCODE_BY_BARCODE", [('GET', Callable[[str], str])])(GET=lambda barcode: f"/stock/products/by-barcode/{barcode}")
+STOCK_PRODUCTS_BY_BARCODE_BY_BARCODE_ADD = typing.NamedTuple("STOCK_PRODUCTS_BY_BARCODE_BY_BARCODE_ADD", [('POST', Callable[[str], str])])(POST=lambda barcode: f"/stock/products/by-barcode/{barcode}/add")
+STOCK_PRODUCTS_BY_BARCODE_BY_BARCODE_CONSUME = typing.NamedTuple("STOCK_PRODUCTS_BY_BARCODE_BY_BARCODE_CONSUME", [('POST', Callable[[str], str])])(POST=lambda barcode: f"/stock/products/by-barcode/{barcode}/consume")
+STOCK_PRODUCTS_BY_BARCODE_BY_BARCODE_TRANSFER = typing.NamedTuple("STOCK_PRODUCTS_BY_BARCODE_BY_BARCODE_TRANSFER", [('POST', Callable[[str], str])])(POST=lambda barcode: f"/stock/products/by-barcode/{barcode}/transfer")
+STOCK_PRODUCTS_BY_BARCODE_BY_BARCODE_INVENTORY = typing.NamedTuple("STOCK_PRODUCTS_BY_BARCODE_BY_BARCODE_INVENTORY", [('POST', Callable[[str], str])])(POST=lambda barcode: f"/stock/products/by-barcode/{barcode}/inventory")
+STOCK_PRODUCTS_BY_BARCODE_BY_BARCODE_OPEN = typing.NamedTuple("STOCK_PRODUCTS_BY_BARCODE_BY_BARCODE_OPEN", [('POST', Callable[[str], str])])(POST=lambda barcode: f"/stock/products/by-barcode/{barcode}/open")
+STOCK_SHOPPINGLIST_ADD_MISSING_PRODUCTS = typing.NamedTuple("STOCK_SHOPPINGLIST_ADD_MISSING_PRODUCTS", [('POST', str)])(POST="/stock/shoppinglist/add-missing-products")
+STOCK_SHOPPINGLIST_ADD_OVERDUE_PRODUCTS = typing.NamedTuple("STOCK_SHOPPINGLIST_ADD_OVERDUE_PRODUCTS", [('POST', str)])(POST="/stock/shoppinglist/add-overdue-products")
+STOCK_SHOPPINGLIST_ADD_EXPIRED_PRODUCTS = typing.NamedTuple("STOCK_SHOPPINGLIST_ADD_EXPIRED_PRODUCTS", [('POST', str)])(POST="/stock/shoppinglist/add-expired-products")
+STOCK_SHOPPINGLIST_CLEAR = typing.NamedTuple("STOCK_SHOPPINGLIST_CLEAR", [('POST', str)])(POST="/stock/shoppinglist/clear")
+STOCK_SHOPPINGLIST_ADD_PRODUCT = typing.NamedTuple("STOCK_SHOPPINGLIST_ADD_PRODUCT", [('POST', str)])(POST="/stock/shoppinglist/add-product")
+STOCK_SHOPPINGLIST_REMOVE_PRODUCT = typing.NamedTuple("STOCK_SHOPPINGLIST_REMOVE_PRODUCT", [('POST', str)])(POST="/stock/shoppinglist/remove-product")
+STOCK_BOOKINGS_BY_BOOKINGID = typing.NamedTuple("STOCK_BOOKINGS_BY_BOOKINGID", [('GET', Callable[[str], str])])(GET=lambda bookingId: f"/stock/bookings/{bookingId}")
+STOCK_BOOKINGS_BY_BOOKINGID_UNDO = typing.NamedTuple("STOCK_BOOKINGS_BY_BOOKINGID_UNDO", [('POST', Callable[[str], str])])(POST=lambda bookingId: f"/stock/bookings/{bookingId}/undo")
+STOCK_TRANSACTIONS_BY_TRANSACTIONID = typing.NamedTuple("STOCK_TRANSACTIONS_BY_TRANSACTIONID", [('GET', Callable[[str], str])])(GET=lambda transactionId: f"/stock/transactions/{transactionId}")
+STOCK_TRANSACTIONS_BY_TRANSACTIONID_UNDO = typing.NamedTuple("STOCK_TRANSACTIONS_BY_TRANSACTIONID_UNDO", [('POST', Callable[[str], str])])(POST=lambda transactionId: f"/stock/transactions/{transactionId}/undo")
+STOCK_BARCODES_EXTERNAL_LOOKUP_BY_BARCODE = typing.NamedTuple("STOCK_BARCODES_EXTERNAL_LOOKUP_BY_BARCODE", [('GET', Callable[[str], str])])(GET=lambda barcode: f"/stock/barcodes/external-lookup/{barcode}")
+RECIPES_BY_RECIPEID_ADD_NOT_FULFILLED_PRODUCTS_TO_SHOPPINGLIST = typing.NamedTuple("RECIPES_BY_RECIPEID_ADD_NOT_FULFILLED_PRODUCTS_TO_SHOPPINGLIST", [('POST', Callable[[str], str])])(POST=lambda recipeId: f"/recipes/{recipeId}/add-not-fulfilled-products-to-shoppinglist")
+RECIPES_BY_RECIPEID_FULFILLMENT = typing.NamedTuple("RECIPES_BY_RECIPEID_FULFILLMENT", [('GET', Callable[[str], str])])(GET=lambda recipeId: f"/recipes/{recipeId}/fulfillment")
+RECIPES_BY_RECIPEID_CONSUME = typing.NamedTuple("RECIPES_BY_RECIPEID_CONSUME", [('POST', Callable[[str], str])])(POST=lambda recipeId: f"/recipes/{recipeId}/consume")
+RECIPES_FULFILLMENT = typing.NamedTuple("RECIPES_FULFILLMENT", [('GET', str)])(GET="/recipes/fulfillment")
+RECIPES_BY_RECIPEID_COPY = typing.NamedTuple("RECIPES_BY_RECIPEID_COPY", [('POST', Callable[[str], str])])(POST=lambda recipeId: f"/recipes/{recipeId}/copy")
+CHORES = typing.NamedTuple("CHORES", [('GET', str)])(GET="/chores")
+CHORES_BY_CHOREID = typing.NamedTuple("CHORES_BY_CHOREID", [('GET', Callable[[str], str])])(GET=lambda choreId: f"/chores/{choreId}")
+CHORES_BY_CHOREID_EXECUTE = typing.NamedTuple("CHORES_BY_CHOREID_EXECUTE", [('POST', Callable[[str], str])])(POST=lambda choreId: f"/chores/{choreId}/execute")
+CHORES_EXECUTIONS_BY_EXECUTIONID_UNDO = typing.NamedTuple("CHORES_EXECUTIONS_BY_EXECUTIONID_UNDO", [('POST', Callable[[str], str])])(POST=lambda executionId: f"/chores/executions/{executionId}/undo")
+CHORES_EXECUTIONS_CALCULATE_NEXT_ASSIGNMENTS = typing.NamedTuple("CHORES_EXECUTIONS_CALCULATE_NEXT_ASSIGNMENTS", [('POST', str)])(POST="/chores/executions/calculate-next-assignments")
+CHORES_BY_CHOREID_PRINTLABEL = typing.NamedTuple("CHORES_BY_CHOREID_PRINTLABEL", [('GET', Callable[[str], str])])(GET=lambda choreId: f"/chores/{choreId}/printlabel")
+CHORES_BY_CHOREIDTOKEEP_MERGE_BY_CHOREIDTOREMOVE = typing.NamedTuple("CHORES_BY_CHOREIDTOKEEP_MERGE_BY_CHOREIDTOREMOVE", [('POST', Callable[[str, str], str])])(POST=lambda choreIdToKeep, choreIdToRemove: f"/chores/{choreIdToKeep}/merge/{choreIdToRemove}")
+BATTERIES = typing.NamedTuple("BATTERIES", [('GET', str)])(GET="/batteries")
+BATTERIES_BY_BATTERYID = typing.NamedTuple("BATTERIES_BY_BATTERYID", [('GET', Callable[[str], str])])(GET=lambda batteryId: f"/batteries/{batteryId}")
+BATTERIES_BY_BATTERYID_CHARGE = typing.NamedTuple("BATTERIES_BY_BATTERYID_CHARGE", [('POST', Callable[[str], str])])(POST=lambda batteryId: f"/batteries/{batteryId}/charge")
+BATTERIES_CHARGE_CYCLES_BY_CHARGECYCLEID_UNDO = typing.NamedTuple("BATTERIES_CHARGE_CYCLES_BY_CHARGECYCLEID_UNDO", [('POST', Callable[[str], str])])(POST=lambda chargeCycleId: f"/batteries/charge-cycles/{chargeCycleId}/undo")
+BATTERIES_BY_BATTERYID_PRINTLABEL = typing.NamedTuple("BATTERIES_BY_BATTERYID_PRINTLABEL", [('GET', Callable[[str], str])])(GET=lambda batteryId: f"/batteries/{batteryId}/printlabel")
+TASKS = typing.NamedTuple("TASKS", [('GET', str)])(GET="/tasks")
+TASKS_BY_TASKID_COMPLETE = typing.NamedTuple("TASKS_BY_TASKID_COMPLETE", [('POST', Callable[[str], str])])(POST=lambda taskId: f"/tasks/{taskId}/complete")
+TASKS_BY_TASKID_UNDO = typing.NamedTuple("TASKS_BY_TASKID_UNDO", [('POST', Callable[[str], str])])(POST=lambda taskId: f"/tasks/{taskId}/undo")
+CALENDAR_ICAL = typing.NamedTuple("CALENDAR_ICAL", [('GET', str)])(GET="/calendar/ical")
+CALENDAR_ICAL_SHARING_LINK = typing.NamedTuple("CALENDAR_ICAL_SHARING_LINK", [('GET', str)])(GET="/calendar/ical/sharing-link")
+PRINT_SHOPPINGLIST_THERMAL = typing.NamedTuple("PRINT_SHOPPINGLIST_THERMAL", [('GET', str)])(GET="/print/shoppinglist/thermal")

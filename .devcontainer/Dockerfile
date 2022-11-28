@@ -11,7 +11,7 @@ FROM mcr.microsoft.com/vscode/devcontainers/miniconda:0-3
 #    && rm -rf /tmp/conda-tmp
 
 # [Optional] Uncomment to install a different version of Python than the default
-# RUN conda install -y python=3.6 \
+RUN conda install -y pandas openpyxl requests
 #     && pip install --no-cache-dir pipx \
 #     && pipx reinstall-all
 
