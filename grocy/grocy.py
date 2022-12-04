@@ -1,15 +1,19 @@
 import requests
 import os
-from typing import Union
 from auth import APIKeyAuth
-import paths
+import pathsgen as paths
+from pathsgen import OBJECTS_BY_ENTITY
+Product = OBJECTS_BY_ENTITY.Product
 
 
+def grocy_request(request: requests.Request, **kwargs):
+    request.url = f"{os.environ['GROCY_API_URI']}{request.url}"
+    request.auth = APIKeyAuth()
+    session = requests.Session()
 
-def grocy_request(method: str, url: str, **kwargs):
-    return requests.request(method, f"{os.environ['GROCY_API_URI']}{url}", auth=APIKeyAuth(), **kwargs)
+    return session.send(request.prepare(), **kwargs)
 
 
-req = grocy_request("GET", paths.BATTERIES.GET)
+req = grocy_request(paths.OBJECTS_BY_ENTITY.POST("products", Product()))
 req.raise_for_status()
 print(req.json())
